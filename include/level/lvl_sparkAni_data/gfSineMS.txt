@@ -1,0 +1,20 @@
+160 20
+36 25 10
+
+5
+Amp Amplitude
+5 70 30.0
+
+wvLen waveLength
+50 400 200
+
+x0 origin
+0 400 200
+
+len length
+50 800 400
+
+speed waveSpeed
+-3.0 3.0 0.0
+
+0 18

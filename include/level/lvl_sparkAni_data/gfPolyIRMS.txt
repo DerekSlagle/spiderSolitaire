@@ -1,0 +1,12 @@
+160 20
+40 20 10
+
+2
+
+scale scale
+0.2 2.0 1.0
+
+speed rotationSpeed
+-0.05 0.05 0.0
+
+0 18

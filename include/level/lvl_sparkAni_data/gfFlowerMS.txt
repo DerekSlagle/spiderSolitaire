@@ -1,0 +1,17 @@
+160 20
+40 20 10
+
+4
+Rout fullR
+20 200 100
+
+Rin innerR
+5 40 10
+
+speed rotationSpeed
+-0.05 0.05 0.0
+
+Npetal numPetals
+2 10 3
+
+0 18

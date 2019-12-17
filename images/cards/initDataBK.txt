@@ -1,0 +1,57 @@
+images/cards/back-blue-75-2.png
+
+C1 images/cards/clubs-a-75.png
+C2 images/cards/clubs-2-75.png
+C3 images/cards/clubs-3-75.png
+C4 images/cards/clubs-4-75.png
+C5 images/cards/clubs-5-75.png
+C6 images/cards/clubs-6-75.png
+C7 images/cards/clubs-7-75.png
+C8 images/cards/clubs-8-75.png
+C9 images/cards/clubs-9-75.png
+C10 images/cards/clubs-10-75.png
+C11 images/cards/clubs-j-75.png
+C12 images/cards/clubs-q-75.png
+C13 images/cards/clubs-k-75.png
+
+D1 images/cards/diamonds-a-75.png
+D2 images/cards/diamonds-2-75.png
+D3 images/cards/diamonds-3-75.png
+D4 images/cards/diamonds-4-75.png
+D5 images/cards/diamonds-5-75.png
+D6 images/cards/diamonds-6-75.png
+D7 images/cards/diamonds-7-75.png
+D8 images/cards/diamonds-8-75.png
+D9 images/cards/diamonds-9-75.png
+D10 images/cards/diamonds-10-75.png
+D11 images/cards/diamonds-j-75.png
+D12 images/cards/diamonds-q-75.png
+D13 images/cards/diamonds-k-75.png
+
+H1 images/cards/hearts-a-75.png
+H2 images/cards/hearts-2-75.png
+H3 images/cards/hearts-3-75.png
+H4 images/cards/hearts-4-75.png
+H5 images/cards/hearts-5-75.png
+H6 images/cards/hearts-6-75.png
+H7 images/cards/hearts-7-75.png
+H8 images/cards/hearts-8-75.png
+H9 images/cards/hearts-9-75.png
+H10 images/cards/hearts-10-75.png
+H11 images/cards/hearts-j-75.png
+H12 images/cards/hearts-q-75.png
+H13 images/cards/hearts-k-75.png
+
+S1 images/cards/spades-a-75.png
+S2 images/cards/spades-2-75.png
+S3 images/cards/spades-3-75.png
+S4 images/cards/spades-4-75.png
+S5 images/cards/spades-5-75.png
+S6 images/cards/spades-6-75.png
+S7 images/cards/spades-7-75.png
+S8 images/cards/spades-8-75.png
+S9 images/cards/spades-9-75.png
+S10 images/cards/spades-10-75.png
+S11 images/cards/spades-j-75.png
+S12 images/cards/spades-q-75.png
+S13 images/cards/spades-k-75.png

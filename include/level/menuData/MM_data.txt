@@ -1,0 +1,14 @@
+1280 720
+
+150.0 160.0
+60.0
+30
+0 255 0
+255 0 0
+
+5
+1      Spider Solitaire
+2      Card Play
+3      Sparks
+4      spark animations
+5      mvHit play

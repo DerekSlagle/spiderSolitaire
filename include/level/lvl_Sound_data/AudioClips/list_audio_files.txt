@@ -1,0 +1,10 @@
+audiocheck_whitegaussian.wav
+White
+audiocheck_pink.wav
+Pink
+audiocheck_brown.wav
+Brown
+audiocheck_violet.wav
+Violet
+audiocheck_blue.wav
+Blue

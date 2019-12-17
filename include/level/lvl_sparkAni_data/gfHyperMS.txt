@@ -1,0 +1,18 @@
+160 20
+50 25 5
+
+4
+
+hypA yIntercept
+-50 50.0 20.0
+
+hypB asymptote
+0.1 2.0 0.5
+
+len length
+50 800 400
+
+x0 origin
+0 400 200
+
+0 18

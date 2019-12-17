@@ -1,0 +1,61 @@
+Hi everyone. I wanted a version of Spider Solitaire to play which is similar to the windows XP version so I've made my own. The game ends in a fireworks show on a win so some particle effects were needed.
+Particle emission and collision handling grew from this effort. Level and GUI classes are also developed.
+
+** Summary Description **
+A function graphing class is developed and used for particles to collide with. Any function can be defined in Cartesian or polar coordinates. I've also made a line emitter which prints particles like a dot matrix printer. 
+The full project is here: https://github.com/pfloyd123/spider-solitaire-plus-particles
+
+The card deals and movement between columns are animated. When a facedown card is revealed a flip over animation occurs. The side lengths are varied during the flip to create some perspective, making it appear to flip left side over right. When an ace through king set is formed an animatioon collapses the set, then moves it to a complete set pile.
+
+In the particle physics level each function graph has a control which allows rotation of the graph, variation of parameter values and for the curve to have motion.
+The typename for the particles is 'spark', hence the 'spark' control in the video.
+
+Gravity, drag, curl, spring and/or inverse square forces can be applied to the sparks.
+A force control allows variance of the force magnitudes, as well as parameters for the spring forces such as spring stiffness, rest length and the position of the attraction centers.
+
+Here's a YouTube demo. The particle interactions are shown first, followed by the card game.
+
+** In Greater Detail **
+** The spark type: see include/spark.h and .cpp
+Although the image size is variable each is treated as a point object. Graphically each is an sf::Quad drawn from a texture (see dots9.png in the images folder). The sparks are not mutually interacting so we can have thousands without performing millions of collision tests each frame. They collide only with the graphFunc types. They have mass and can be acted on by applied forces. Gravity is acting in most of the demo video. Interactions with 2 springs is also shown. The yellow dots are at the springs fixed end positions.
+
+** The graphFuncs: see include/graphFunc.h and .cpp
+Graphically, all curved examples (sine, polynomial, hyperbola, ellipse and flower) are 100 or more sf::Vertex drawn as a sf::LinesStrip.
+The 2 polygon types have 1+number-of-vertices sf::Vertex, also drawn as sf::LinesStrip. The defining function can be expressed in either Cartesian or polar coordinates. The sine, polynomial and hyperbola examples are Cartesian. All others are in polar coordinates.
+Sparks are collision tested when incident from either side of the graph, so sparks can be contained within the interior area of the polar types or bounced off of the outside. Both are demonstrated in the video.
+Collision testing: A bounding box check is done 1st, then a ray based method is used to check if the spark has crossed the grapf. Sparks have a velocity data member (an sf::Vector2f) so the position last frame can be found. If Yspark > Ygraph in one position and Yspark < Ygraph in the other, then it has crossed and must be bounced off of the incident side. I interpolate to find where it crossed the graph then place it 1 pixel from the incident side at the crossing point. The velocity component normal to the graph is assigned *= coefficient of restitution, so inelastic collisions can occur. This can be varied in the app with a 'click strip' gui object at the bottom of the window. The incident spark velocity is relative to the graph so the graph motion is accounted for in the collision. This method is working well for a fair range of parameter values (variable in each curves control) but leakage does occur in some cases.
+Since the algorithm is ray based it works well for sparks moving at high speed.
+
+** The forces: see include/forceType.h and .cpp
+The central force type is derived from an abstract conservative force type. Central forces are either a spring or an inverse square force.
+Since they are conservative, the force can be given as a vector quantity, or expressed as a scalar potential energy function
+virtual sf::Vector2f F( sf::Vector2f pos )const = 0;// find the force
+virtual float U( sf::Vector2f pos )const = 0;// find the potential energy
+There are also functions which create GUI controls for each instance. This function is used to create the spring force controls on the force control surface in the app. virtual void makeListControl( buttonList& BL );// prepare a given buttonList (see below) instance
+
+There is a level in the app, not shown in the demo, where 3 methods of applying a force to sparks are compared.
+1. Apply force directly. 
+2. Calculate force = -Gradient( U(pos) ) where partial derivatives are approximated.
+3. A force map is created, then the force acting at the spark position is interpolated from the map.
+Response variance is seen where forces vary rapidly with position, such as near the attraction center of an inverse square force.
+See include/level/lvl_spark.h and .cpp
+The other forces: cross, drag and gravity are applied directly in the lvl_sparkAni::update() function.
+
+
+** The GUI objects: see include/button_types
+All GUI objects derive from the abstract class button, so named because it all started with just a clickable button.
+Here are the core interface functions:
+ 
+virtual void draw( sf::RenderTarget& RT )const = 0;// draw the object
+virtual bool hit()const = 0;// test if the mouse cursor is over it. The shape of a button can vary with the type.
+virtual bool MseOver();// calls hit() and assigns a few things
+virtual bool hitLeft();// respond to left click
+virtual bool hitRight();// respond to right click
+virtual void setPosition( sf::Vector2f Pos ) = 0;
+virtual void update();// supports animated features
+virtual void init_delayBox()// supports hover effects eg. value to be selected on a click strip object.
+
+There are also some static member functions which process all GUI objects in a loop. These functions are called outside of the Level::update() function, so the only coding necessary in a level is to initialize the GUI objects. All usage is then automatic.
+The buttonList (a drop list) and controlSurface types manage a set of other button objects, and serve as a proxy for them to the static management system. The click strip (typename buttonValOnHit) and slideBar types derive from an abstract floatSelector type. The multiSelector type is defined in floatSelector.h and combines a floatSelector with a std::vector<buttonRect> so a single click strip (or slideBar) can be used to set numerous quantities. It's used in most of the controls seen in the demo. 
+The buttStrip type is a button which opens/closes a single floatSelector. It's used in the force control to vary the cross, drag and gravity forces being applied to the sparks. When used with a slideBar it can be set to fade the value in and out.
+There are other types (eg. color picker, OK box, radio buttons, virtual joystick), but I'll limit decsriptions here to the types used in this app.

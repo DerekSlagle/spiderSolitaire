@@ -1,0 +1,9 @@
+1
+
+include/level/lvl_sparkAni_data/savedAnis/flower_7petal.txt  400 120
+include/level/lvl_sparkAni_data/savedAnis/springAni_data3.txt 600 200
+include/level/lvl_sparkAni_data/savedAnis/springAni_data4.txt 800 200
+include/level/lvl_sparkAni_data/savedAnis/springAni_data5.txt 1000 200
+
+include/level/lvl_sparkAni_data/savedAnis/SavedSparkAni_7ptStar.txt 200 500
+include/level/lvl_sparkAni_data/savedAnis/savedSparkAni_A.txt 400 500

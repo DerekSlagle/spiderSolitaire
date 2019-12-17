@@ -1,0 +1,28 @@
+320.0 140.0
+15.0 10.0
+
+15 50
+
+180.0 22.0
+40 20 10
+
+6
+Speed Speed
+0 10 3.0
+
+Life lifetime
+50 1000 300
+
+Angle printAngle
+0.0 3.14159 3.14159
+
+Reso printDx
+1.0 8.0 3.0
+
+Size sparkSize
+1.0 8.0 3.0
+
+Zoom Zoom
+0.2 5.0 1.0
+
+0 22
